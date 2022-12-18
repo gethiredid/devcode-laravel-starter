@@ -1,16 +1,32 @@
-FROM php:8.2-alpine
+FROM composer AS composer
 
-# Get latest Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# copying the source directory and install the dependencies with composer
+COPY . /app
 
-# Set working directory
-WORKDIR /app
-
-COPY . .
-RUN composer install
+# run composer install to install the dependencies
+RUN composer install \
+  --optimize-autoloader \
+  --no-interaction \
+  --no-progress
 RUN cp .env.example .env
 RUN php artisan key:generate
 
+<<<<<<< HEAD
 EXPOSE 3030
 
 CMD [ "php", "artisan", "serve" , "--host", "0.0.0.0", "--port", "3030"]
+=======
+# continue stage build with the desired image and copy the source including the
+# dependencies downloaded by composer
+FROM trafex/php-nginx
+# Configure nginx
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+USER root
+RUN apk add --no-cache php81-tokenizer
+
+USER nobody
+
+EXPOSE 3030
+
+COPY --chown=nobody --from=composer /app /var/www/html
+>>>>>>> php-nginx
