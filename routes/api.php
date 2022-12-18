@@ -25,22 +25,23 @@ Route::get('hello', function () {
     ]);
 });
 
-// Uncomment 2 handler dibawah ini untuk mendapatkan dan menambah kontak
-// Route::get('/contacts', function () {
-//     return response()->json([
-//         'status' => 'Success',
-//         'items' => session('contacts'),
-//     ]);
-// });
-// 
-// Route::post('/contacts', function (Request $request) {
-//     $newContact = $request->all();
-//     $contacts = session('contacts', []);
-//     array_push($contacts, $newContact);
-//     session(['contacts' => $contacts]);
-//     return response()->json([
-//         'message' => 'Contact created',
-//         'status' => 'Success',
-//         'items' => $newContact,
-//     ]);
-// });
+// Ganti handler dibawah untuk menggunakan model laravel untuk mendapatkan data ke db
+Route::get('/contacts', function () {
+    return response()->json([
+        'status' => 'Success',
+        'items' => session('contacts'),
+    ]);
+});
+
+// Ganti handler dibawah untuk menggunakan model laravel untuk menyimpan data ke db
+Route::post('/contacts', function (Request $request) {
+    $newContact = $request->all();
+    $contacts = session('contacts', []);
+    array_push($contacts, $newContact);
+    session(['contacts' => $contacts]);
+    return response()->json([
+        'message' => 'Contact created',
+        'status' => 'Success',
+        'items' => $newContact,
+    ]);
+});
