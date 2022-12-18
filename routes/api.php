@@ -25,21 +25,22 @@ Route::get('hello', function () {
     ]);
 });
 
-Route::get('/contacts', function () {
-    return response()->json([
-        'status' => 'Success',
-        'items' => session('contacts'),
-    ]);
-});
-
-Route::post('/contacts', function (Request $request) {
-    $newContact = $request->all();
-    $contacts = session('contacts', []);
-    array_push($contacts, $newContact);
-    session(['contacts' => $contacts]);
-    return response()->json([
-        'message' => 'Contact created',
-        'status' => 'Success',
-        'items' => $newContact,
-    ]);
-});
+// Uncomment 2 handler dibawah ini untuk mendapatkan dan menambah kontak
+// Route::get('/contacts', function () {
+//     return response()->json([
+//         'status' => 'Success',
+//         'items' => session('contacts'),
+//     ]);
+// });
+// 
+// Route::post('/contacts', function (Request $request) {
+//     $newContact = $request->all();
+//     $contacts = session('contacts', []);
+//     array_push($contacts, $newContact);
+//     session(['contacts' => $contacts]);
+//     return response()->json([
+//         'message' => 'Contact created',
+//         'status' => 'Success',
+//         'items' => $newContact,
+//     ]);
+// });
