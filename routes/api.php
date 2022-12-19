@@ -19,33 +19,32 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Uncomment baris dibawah ini untuk membuat api /hello
 Route::get('hello', function () {
     return response()->json([
         'message' => 'Hello world'
     ]);
 });
 
-// Ganti handler dibawah untuk menggunakan model laravel untuk mendapatkan data ke db
-Route::get('/contacts', function () {
-    return response()->json([
-        'status' => 'Success',
-        'data' => session('contacts', []),
-    ]);
-});
+// Uncomment handler dibawah ini untuk mendapat semua kontak
+// Route::get('/contacts', function () {
+//     return response()->json([
+//         'status' => 'Success',
+//         'data' => session('contacts', []),
+//     ]);
+// });
 
-// Ganti handler dibawah untuk menggunakan model laravel untuk menyimpan data ke db
-Route::post('/contacts', function (Request $request) {
-    $newContact = $request->all();
-    $contacts = session('contacts', []);
-    $id = count($contacts) + 1;
-    $newContact['id'] = $id;
-    array_push($contacts, $newContact);
-    session(['contacts' => $contacts]);
-    $response = response()->json([
-        'message' => 'Contact created',
-        'status' => 'Success',
-        'data' => $newContact,
-    ]);
-    return $response;
-});
+// Uncomment handler dibawah ini untuk menambah kontak
+// Route::post('/contacts', function (Request $request) {
+//     $newContact = $request->all();
+//     $contacts = session('contacts', []);
+//     $id = count($contacts) + 1;
+//     $newContact['id'] = $id;
+//     array_push($contacts, $newContact);
+//     session(['contacts' => $contacts]);
+//     $response = response()->json([
+//         'message' => 'Contact created',
+//         'status' => 'Success',
+//         'data' => $newContact,
+//     ]);
+//     return $response;
+// });
