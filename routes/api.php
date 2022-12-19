@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Log;
+use App\Models\contact;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,24 +28,25 @@ Route::get('hello', function () {
 
 // Ganti handler dibawah untuk menggunakan model laravel untuk mendapatkan data ke db
 Route::get('/contacts', function () {
+    $contacts = contact::all();
     return response()->json([
         'status' => 'Success',
-        'data' => session('contacts', []),
+        'data' => $contacts,
     ]);
 });
 
 // Ganti handler dibawah untuk menggunakan model laravel untuk menyimpan data ke db
 Route::post('/contacts', function (Request $request) {
     $newContact = $request->all();
-    $contacts = session('contacts', []);
-    $id = count($contacts) + 1;
-    $newContact['id'] = $id;
-    array_push($contacts, $newContact);
-    session(['contacts' => $contacts]);
+    $contact = new contact();
+    $contact->full_name = $newContact['full_name'];
+    $contact->phone_number = $newContact['phone_number'];
+    $contact->email = $newContact['email'];
+    $contact->save();
     $response = response()->json([
         'message' => 'Contact created',
         'status' => 'Success',
-        'data' => $newContact,
+        'data' => $contact,
     ]);
     return $response;
 });
