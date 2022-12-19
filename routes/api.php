@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::get('hello', function () {
 Route::get('/contacts', function () {
     return response()->json([
         'status' => 'Success',
-        'items' => session('contacts'),
+        'data' => session('contacts', []),
     ]);
 });
 
@@ -37,11 +38,14 @@ Route::get('/contacts', function () {
 Route::post('/contacts', function (Request $request) {
     $newContact = $request->all();
     $contacts = session('contacts', []);
+    $id = count($contacts) + 1;
+    $newContact['id'] = $id;
     array_push($contacts, $newContact);
     session(['contacts' => $contacts]);
-    return response()->json([
+    $response = response()->json([
         'message' => 'Contact created',
         'status' => 'Success',
-        'items' => $newContact,
+        'data' => $newContact,
     ]);
+    return $response;
 });
