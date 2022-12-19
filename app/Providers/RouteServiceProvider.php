@@ -30,8 +30,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->routes(function () {
             Route::middleware('api')
-                // comment atau haps baris dibawah ini agar api laravel tidak diawali oleh /api/{route}
-                // ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
