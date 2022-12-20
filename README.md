@@ -54,6 +54,7 @@ adapun ketentuan untuk skema db adalah sebagai berikut:
 - full_name string 255
 - phone_number string 20
 - email string 255
+Jangan lupa untuk menyesuaikan .env anda agar menggunakan config env yang sudah diubah sebelumnya. kemudian execute command `php artisan migrate` untuk membuat table
 
 ## Menjalankan Unit Testing dengan Docker
 
