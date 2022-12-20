@@ -10,7 +10,7 @@ Peserta dapat membuat dan menampilkan data kontak yang terkoneksi dengan databas
 2. Extract source code yang sudah terdownload pada perangkat anda
 3. Buka source code yang sudah diextract menggunakan Code Editor, contoh Visual Studio Code
 4. Salin isi dari file `.env.example` ke dalam file `.env`
-5. Ubah konfigurasi database pada project dengan mengubah baris kode pada file `config/database.php`, untuk langkah-langkahnya bisa dilihat [disini](#konfigurasi db)
+5. Ubah konfigurasi database pada project dengan mengubah baris kode pada file `config/database.php`, untuk langkah-langkahnya bisa dilihat [disini](#konfigurasi-db)
 6. Jalankan `composer install` pada terminal
 7. Jalankan `php artisan key:generate` pada terminal
 8. Jalankan `php artisan serve` untuk mode development pada terminal
