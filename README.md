@@ -28,6 +28,7 @@ Peserta dapat membuat dan menampilkan data kontak dengan menggunakan local varia
 
 1. [Git](https://git-scm.com)
 2. [Docker](https://www.docker.com)
+2. [Laravel](https://laravel.com/)
 
 ## Menginstal Tools yang Digunakan
 
