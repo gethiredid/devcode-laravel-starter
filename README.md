@@ -17,7 +17,7 @@ Peserta dapat menampilkan message hello world dalam format JSON pada url http://
 ## Instruksi Pengerjaan
 
 1. Pastikan anda sudah meng-install tools yang diperlukan. Jika belum, silahkan ikuti langkah-langkahnya [disini](#menginstal-tools-yang-diperlukan)
-2. Uncomment kode yang terdapat pada file `routes/api.php`
+2. Uncomment baris kode yang terdapat pada file `routes/api.php`
 3. Lakukan unit testing pada local anda dengan menggunakan Docker, langkah-langkahnya dapat dilihat [disini](#menjalankan-unit-testing-dengan-Docker)
 4. Push projek ke docker hub setelah semua test case berhasil dijalankan, langkah-langkahnya dapat dilihat [disini](#push-projek-ke-docker-hub)
 5. Submit image docker yang telah dipush ke Docker Hub ke Halaman Submission Devcode, langkah-langkahnya dapat dilihat [disini](#push-projek-ke-docker-hub)
@@ -26,6 +26,7 @@ Peserta dapat menampilkan message hello world dalam format JSON pada url http://
 
 1. [Git](https://git-scm.com)
 2. [Docker](https://www.docker.com)
+3. [Laravel](https://laravel.com/)
 
 ## Menginstal Tools yang Digunakan
 
