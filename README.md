@@ -15,7 +15,7 @@ Peserta dapat menampilkan hello world json pada url http://localhost:8000/hello.
 
 ## Instruksi Pengerjaan
 
-1. Selesaikan challenge yang terdapat pada file `app/Http/Kernel.php`, `routes/api.php`
+1. Uncomment kode yang terdapat pada `app/Http/Kernel.php`, dan `routes/api.php`
 2. Build project ini dengan docker.
 
 #### Tools yang di perlukan
