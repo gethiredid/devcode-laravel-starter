@@ -1,10 +1,17 @@
-# Devcode node.js starter with express.js - Level 3
+# Devcode Laravel - Level 3
 
 ## Hasil akhir yang diharapkan
 
 Peserta dapat membuat dan menampilkan data kontak yang terkoneksi dengan database.
 
 ## Instruksi pengerjaan
+
+Anda harus mengubah file `config/database.php` dan menyesuaikan env yang dibutuhkan. adapun env yang dibutuhkan adalah sbb:
+- DB_HOST menjadi MYSQL_HOST
+- DB_PORT menjadi MYSQL_PORT
+- DB_DATABASE menjadi MYSQL_DBNAME
+- DB_USERNAME menjadi MYSQL_USER
+- DB_PASSWORD menjadi MYSQL_PASSWORD
 
 Terdapat 2 route pada file `app.js` yaitu :
 
@@ -19,11 +26,12 @@ Pastikan juga semua test berhasil ketika menjalankan unit testing lokal.
 
 - Git
 - Docker 
+- Composer
 
 ### Cara menginstall Tools
 
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-
+- [Composer](https://getcomposer.org/)
 - Docker : 
     - [Windows](https://docs.docker.com/desktop/install/windows-install/)
     - [Mac](https://docs.docker.com/desktop/install/mac-install/)
