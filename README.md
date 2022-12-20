@@ -1,109 +1,117 @@
-# Devcode Laravel - Level 3
+# Devcode Starter Laravel Level 3
 
-## Hasil akhir yang diharapkan
+## Hasil Akhir yang Diharapkan
 
 Peserta dapat membuat dan menampilkan data kontak yang terkoneksi dengan database.
 
-## Instruksi pengerjaan
+## Setup Environment
 
-Anda harus mengubah file `config/database.php` dan menyesuaikan env yang dibutuhkan. adapun env yang dibutuhkan adalah sbb:
+1. Download source code melalui link yang telah disediakan dari halaman assesment
+2. Extract source code yang sudah terdownload pada perangkat anda
+3. Buka source code yang sudah diextract menggunakan Code Editor, contoh Visual Studio Code
+4. Salin isi dari file `.env.example` ke dalam file `.env`
+5. Ubah konfigurasi database pada project dengan mengubah baris kode pada file `config/database.php`, untuk langkah-langkahnya bisa dilihat [disini](#konfigurasi db)
+6. Jalankan `composer install` pada terminal
+7. Jalankan `php artisan key:generate` pada terminal
+8. Jalankan `php artisan serve` untuk mode development pada terminal
+
+## Instruksi Pengerjaan
+
+1. Pastikan anda sudah meng-install tools yang diperlukan. Jika belum, silahkan ikuti langkah-langkahnya [disini](#menginstal-tools-yang-diperlukan)
+2. Sesuaikan request dan response pada route GET `/contacts` pada file `app.js` sesuai dengan [Dokumentasi API](https://documenter.getpostman.com/view/6584319/2s8Yt1rUtN) pada Postman
+3. Sesuaikan request dan response pada route POST `/contacts` pada file `app.js` sesuai dengan [Dokumentasi API](https://documenter.getpostman.com/view/6584319/2s8Yt1rUtN) pada Postman
+4. Lakukan unit testing pada local anda dengan menggunakan Docker, langkah-langkahnya dapat dilihat [disini](#menjalankan-unit-testing-dengan-Docker)
+5. Push projek ke docker hub setelah semua test case berhasil dijalankan, langkah-langkahnya dapat dilihat [disini](#push-projek-ke-docker-hub)
+6. Submit image docker yang telah dipush ke Docker Hub ke Halaman Submission Devcode, langkah-langkahnya dapat dilihat [disini](#push-projek-ke-docker-hub)
+
+## Tools dan Packages yang Digunakan
+
+1. [Git](https://git-scm.com)
+2. [Docker](https://www.docker.com)
+3. [Laravel](https://laravel.com/)
+3. [Composer](https://getcomposer.org/)
+
+## Menginstal Tools yang Digunakan
+
+-   [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+-   [Composer](https://getcomposer.org/doc/00-intro.md)
+-   Docker
+    -   [Windows](https://docs.docker.com/desktop/install/windows-install/)
+    -   [Mac](https://docs.docker.com/desktop/install/mac-install/)
+    -   [Linux](https://docs.docker.com/desktop/install/linux-install/)
+
+## Konfigurasi DB
+di file `config/database.php` ubah env menjadi sebagai berikut:
 - DB_HOST menjadi MYSQL_HOST
 - DB_PORT menjadi MYSQL_PORT
 - DB_DATABASE menjadi MYSQL_DBNAME
 - DB_USERNAME menjadi MYSQL_USER
 - DB_PASSWORD menjadi MYSQL_PASSWORD
 
-Terdapat 2 route pada file `app.js` yaitu :
+Hidupkan database dengan eksekusi perintah `docker compose up db -d`, kemudian buat model & migration untuk Contact dengan command `php artisan make:model Contact -m`
+adapun ketentuan untuk skema db adalah sebagai berikut:
+- id int primary key
+- full_name string 255
+- phone_number string 20
+- email string 255
 
-- GET `/contacts`
-- POST `/contacts`
+## Menjalankan Unit Testing dengan Docker
 
-Anda dapat mengubah route tersebut agar request dan response sesuai dengan [dokumentasi API](https://documenter.getpostman.com/view/6584319/2s8Yt1rUtN) pada postman.
+### Build Docker Image
 
-Pastikan juga semua test berhasil ketika menjalankan unit testing lokal.
-
-## Tools yang di perlukan
-
-- Git
-- Docker 
-- Composer
-
-### Cara menginstall Tools
-
-- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Composer](https://getcomposer.org/)
-- Docker : 
-    - [Windows](https://docs.docker.com/desktop/install/windows-install/)
-    - [Mac](https://docs.docker.com/desktop/install/mac-install/)
-    - [Linux](https://docs.docker.com/desktop/install/linux-install/)
-
-## Packages yang digunakan
-
-- Laravel
-
-## Docker
-
-Jika anda sudah menginstall docker, anda bisa menjalankan perintah `docker-compose up -d` untuk menjalankan API <b>Contact Manager</b> dan juga database <b>Mysql</b>. Tetapi pastikan `environment` pada file .env yang telah kamu buat dari .env.example sesuai dengan `environment` pada file `docker-compose.yaml`.
-
-Apabila ada perubahan pada file kodingan anda, anda bisa build ulang container dengan perintah :
-```bash
-docker-compose up -d --force --recreate
-``` 
-
-## Menjalankan projek
-
-- copy `.env.example` ke `.env` dan sesuaikan config untuk server dan database.
-- Install package dengan perintah `composer install`.
-- Jalankan `php artisan key:generate`.
-- jalankan projek dengan perintah `php artisan serve`.
-
-## Migration 
-
-Untuk migrasi & model ORM, kamu bisa menjalankan step berikut:
-1. Jalankan perintah `php artisan make:model {nama_model} -m` dalam tugas kali ini 
-2. Sesuaikan migration dengan schema berikut
-```sql
-id: INT
-full_name: string / varchar
-phone_number: string / varchar
-email: string / varchar
-```
-3. pastikan db kamu sudah berjalan dan sesuai, untuk menjalankan db image, anda bisa menjalankan command `docker compose up db -d`, sedangkan untuk konfigurasi dbnya bisa di cek pada docker-compose.yml
-4. jalankan `php artisan migrate`
-
-# Menjalankan unit testing dengan docker
-
-Pastikan environment database dan port API pada file `.env` sama dengan `file docker-compose.yaml`.
-Dan pastikan anda telah menjalakan database dan api pada docker lokal, kalau belum jalankan perintah berikut  `docker-compose up -d` atau `docker-compose up -d --build --force-recreate` untuk build ulang image ketika ada perubahan pada file.
-
-Jalankan perintah berikut untuk melakukan unit testing:
-```bash
-docker run --network="host" -e API_URL=http://localhost:3030 -e LEVEL=3 alfi08/hello-unit-testing
-```
-
-# Submit ke Devcode
-## Build docker image
-Jalankan perintah berikut untuk Build docker image  `docker build . -t {name}`
+Jalankan perintah berikut untuk Build docker image `docker build . -t {name}`
 
 contoh :
-```bash
-docker build . -t devcode-laravel
+
+```
+docker build . -t laravel-hello
 ```
 
+### Jalankan Docker Image
 
-## Push projek ke docker hub
+Jalankan docker image dengan perintah `docker run -e PORT=3030 -p 3030:3030 {docker image}`
+
+contoh:
+
+```
+docker run -e PORT=3030 -p 3030:3030 laravel-hello
+```
+
+### Jalankan Unit Testing
+
+Pastikan port ketika menjalankan docker image sama dengan `API_URL` ketika ingin menjalankan unit testing.
+
+Jalankan perintah berikut untuk menjalankan unit testing di local:
+
+```
+docker run --network="host" -e API_URL=http://localhost:3030 -e LEVEL=1 alfi08/hello-unit-testing
+```
+
+## Submit Docker Image ke Devcode
+
+### Build Docker Image
+
+Jalankan perintah berikut untuk Build docker image `docker build . -t {name}`
+
+Contoh :
+
+```
+docker build . -t nodejs-hello
+```
+
+### Push projek ke Docker Hub
 
 Pastikan sudah memiliki akun docker hub, dan login akun docker anda di lokal dengan perintah `docker login`.
 
 Setelah itu jalankan perintah berikut untuk push docker image lokal ke docker hub.
 
-```bash
-docker tag devcode-nodejs {username docker}/devcode-laravel
-docker push {username docker}/devcode-laravel
+```
+docker tag laravel-hello {username docker}/laravel-hello
+docker push {username docker}/laravel-hello
 ```
 
 Setelah itu submit docker image ke Devcode.
 
-```bash
-{username docker}/devcodelaravel
+```
+{username docker}/laravel-hello
 ```
