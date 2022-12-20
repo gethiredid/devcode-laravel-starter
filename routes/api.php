@@ -19,14 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Uncomment baris dibawah ini untuk membuat api /hello
 Route::get('hello', function () {
     return response()->json([
         'message' => 'Hello world'
     ]);
 });
 
-// Ganti handler dibawah untuk menggunakan model laravel untuk mendapatkan data ke db
 Route::get('/contacts', function () {
     $contacts = contact::all();
     return response()->json([
@@ -35,7 +33,6 @@ Route::get('/contacts', function () {
     ]);
 });
 
-// Ganti handler dibawah untuk menggunakan model laravel untuk menyimpan data ke db
 Route::post('/contacts', function (Request $request) {
     $newContact = $request->all();
     $contact = new contact();
@@ -47,6 +44,29 @@ Route::post('/contacts', function (Request $request) {
         'message' => 'Contact created',
         'status' => 'Success',
         'data' => $contact,
+    ]);
+    return $response;
+});
+
+Route::put('/contacts/{contact}', function (Request $request, Contact $contact) {
+    $newContact = $request->all();
+    $contact->full_name = $newContact['full_name'];
+    $contact->phone_number = $newContact['phone_number'];
+    $contact->email = $newContact['email'];
+    $contact->save();
+    $response = response()->json([
+        'message' => 'Contact updated',
+        'status' => 'Success',
+        'data' => $contact,
+    ]);
+    return $response;
+});
+
+Route::delete('/contacts/{contact}', function (Contact $contact) {
+    $contact->delete();
+    $response = response()->json([
+        'message' => 'Contact deleted',
+        'status' => 'Success',
     ]);
     return $response;
 });
