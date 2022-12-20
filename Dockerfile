@@ -11,11 +11,6 @@ RUN composer install \
 RUN cp .env.example .env
 RUN php artisan key:generate
 
-<<<<<<< HEAD
-EXPOSE 3030
-
-CMD [ "php", "artisan", "serve" , "--host", "0.0.0.0", "--port", "3030"]
-=======
 # continue stage build with the desired image and copy the source including the
 # dependencies downloaded by composer
 FROM trafex/php-nginx
@@ -29,4 +24,3 @@ USER nobody
 EXPOSE 3030
 
 COPY --chown=nobody --from=composer /app /var/www/html
->>>>>>> php-nginx
