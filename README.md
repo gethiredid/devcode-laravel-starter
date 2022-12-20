@@ -18,8 +18,8 @@ Peserta dapat membuat dan menampilkan data kontak dengan menggunakan local varia
 
 1. Pastikan anda sudah meng-install tools yang diperlukan. Jika belum, silahkan ikuti langkah-langkahnya [disini](#menginstal-tools-yang-digunakan)
 2. Uncomment baris kode yang terdapat pada file `app/Provider/RouteServiceProvider.php`, untuk menambahkan session middleware untuk api
-3. Sesuaikan request dan response pada route GET `/contacts` pada file `app.js` sesuai dengan [Dokumentasi API](https://documenter.getpostman.com/view/6584319/2s8Yt1rUtN) pada Postman
-4. Sesuaikan request dan response pada route POST `/contacts` pada file `app.js` sesuai dengan [Dokumentasi API](https://documenter.getpostman.com/view/6584319/2s8Yt1rUtN) pada Postman
+3. Sesuaikan request dan response pada route GET `/contacts` pada file `routes/api.php` sesuai dengan [Dokumentasi API](https://documenter.getpostman.com/view/6584319/2s8Yt1rUtN) pada Postman
+4. Sesuaikan request dan response pada route POST `/contacts` pada file `routes/api.php` sesuai dengan [Dokumentasi API](https://documenter.getpostman.com/view/6584319/2s8Yt1rUtN) pada Postman
 5. Lakukan unit testing pada local anda dengan menggunakan Docker, langkah-langkahnya dapat dilihat [disini](#menjalankan-unit-testing-dengan-Docker)
 6. Push projek ke docker hub setelah semua test case berhasil dijalankan, langkah-langkahnya dapat dilihat [disini](#push-projek-ke-docker-hub)
 7. Submit image docker yang telah dipush ke Docker Hub ke Halaman Submission Devcode, langkah-langkahnya dapat dilihat [disini](#push-projek-ke-docker-hub)
