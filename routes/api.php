@@ -19,14 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Uncomment baris dibawah ini untuk membuat api /hello
 Route::get('hello', function () {
     return response()->json([
         'message' => 'Hello world'
     ]);
 });
 
-// Ganti handler dibawah untuk menggunakan model laravel untuk mendapatkan data ke db
 Route::get('/contacts', function () {
     $contacts = contact::all();
     return response()->json([
@@ -35,7 +33,6 @@ Route::get('/contacts', function () {
     ]);
 });
 
-// Ganti handler dibawah untuk menggunakan model laravel untuk menyimpan data ke db
 Route::post('/contacts', function (Request $request) {
     $newContact = $request->all();
     $contact = new contact();
@@ -50,3 +47,5 @@ Route::post('/contacts', function (Request $request) {
     ]);
     return $response;
 });
+
+// Tambahkan handler untuk PUT & DELETE contact
