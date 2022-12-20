@@ -26,9 +26,6 @@ Peserta dapat menampilkan message hello world dalam format JSON pada url http://
 
 1. [Git](https://git-scm.com)
 2. [Docker](https://www.docker.com)
-3. [Express.js](https://expressjs.com)
-4. [nodemon](https://nodemon.io)
-5. [Morgan](https://www.npmjs.com/package/morgan)
 
 ## Menginstal Tools yang Digunakan
 
@@ -47,7 +44,7 @@ Jalankan perintah berikut untuk Build docker image `docker build . -t {name}`
 contoh :
 
 ```
-docker build . -t nodejs-hello
+docker build . -t laravel-hello
 ```
 
 ### Jalankan Docker Image
@@ -57,7 +54,7 @@ Jalankan docker image dengan perintah `docker run -e PORT=3030 -p 3030:3030 {doc
 contoh:
 
 ```
-docker run -e PORT=3030 -p 3030:3030 nodejs-hello
+docker run -e PORT=3030 -p 3030:3030 laravel-hello
 ```
 
 ### Jalankan Unit Testing
@@ -79,7 +76,7 @@ Jalankan perintah berikut untuk Build docker image `docker build . -t {name}`
 Contoh :
 
 ```
-docker build . -t nodejs-hello
+docker build . -t laravel-hello
 ```
 
 ### Push projek ke Docker Hub
@@ -89,12 +86,12 @@ Pastikan sudah memiliki akun docker hub, dan login akun docker anda di lokal den
 Setelah itu jalankan perintah berikut untuk push docker image lokal ke docker hub.
 
 ```
-docker tag nodejs-hello {username docker}/nodejs-hello
-docker push {username docker}/nodejs-hello
+docker tag laravel-hello {username docker}/laravel-hello
+docker push {username docker}/laravel-hello
 ```
 
 Setelah itu submit docker image ke Devcode.
 
 ```
-{username docker}/nodejs-hello
+{username docker}/laravel-hello
 ```
