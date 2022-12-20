@@ -27,10 +27,12 @@ Peserta dapat menampilkan message hello world dalam format JSON pada url http://
 1. [Git](https://git-scm.com)
 2. [Docker](https://www.docker.com)
 3. [Laravel](https://laravel.com/)
+4. [Composer](https://getcomposer.org/)
 
 ## Menginstal Tools yang Digunakan
 
 -   [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+-   [Composer](https://getcomposer.org/)
 -   Docker
     -   [Windows](https://docs.docker.com/desktop/install/windows-install/)
     -   [Mac](https://docs.docker.com/desktop/install/mac-install/)
