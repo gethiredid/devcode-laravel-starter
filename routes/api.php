@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +24,7 @@ Route::get('hello', function () {
     ]);
 });
 
-// Uncomment handler dibawah ini untuk mendapat semua kontak
+// TODO: Uncomment handler dibawah ini untuk mendapat semua kontak
 // Route::get('/contacts', function () {
 //     return response()->json([
 //         'status' => 'Success',
@@ -33,7 +32,7 @@ Route::get('hello', function () {
 //     ]);
 // });
 
-// Uncomment handler dibawah ini untuk menambah kontak
+// TODO: Uncomment handler dibawah ini untuk menambah kontak
 // Route::post('/contacts', function (Request $request) {
 //     $newContact = $request->all();
 //     $contacts = session('contacts', []);
