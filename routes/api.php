@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Uncomment baris dibawah ini untuk membuat api /hello
+// TODO: Uncomment baris dibawah ini untuk membuat api /hello
 // Route::get('hello', function () {
 //     return response()->json([
 //         'message' => 'Hello world'
