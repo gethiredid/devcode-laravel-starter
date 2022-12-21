@@ -33,6 +33,7 @@ Route::get('/contacts', function () {
     ]);
 });
 
+// TODO: tambahkan validasi duplicate dan blank
 Route::post('/contacts', function (Request $request) {
     $newContact = $request->all();
     $contact = new contact();
@@ -48,6 +49,7 @@ Route::post('/contacts', function (Request $request) {
     return $response;
 });
 
+// TODO: tambahkan validasi not found dan blank
 Route::put('/contacts/{contact}', function (Request $request, Contact $contact) {
     $newContact = $request->all();
     if (isset($newContact['full_name'])) {
@@ -68,6 +70,7 @@ Route::put('/contacts/{contact}', function (Request $request, Contact $contact) 
     return $response;
 });
 
+// TODO: tambahkan validasi not found
 Route::delete('/contacts/{contact}', function (Contact $contact) {
     $contact->delete();
     $response = response()->json([
