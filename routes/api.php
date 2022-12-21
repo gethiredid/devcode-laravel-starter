@@ -25,7 +25,7 @@ Route::get('hello', function () {
     ]);
 });
 
-// Ganti handler dibawah untuk menggunakan model laravel untuk mendapatkan data ke db
+// TODO: Ganti handler dibawah untuk menggunakan model laravel untuk mendapatkan data ke db
 Route::get('/contacts', function () {
     return response()->json([
         'status' => 'Success',
@@ -33,7 +33,7 @@ Route::get('/contacts', function () {
     ]);
 });
 
-// Ganti handler dibawah untuk menggunakan model laravel untuk menyimpan data ke db
+// TODO: Ganti handler dibawah untuk menggunakan model laravel untuk menyimpan data ke db
 Route::post('/contacts', function (Request $request) {
     $newContact = $request->all();
     $contacts = session('contacts', []);
