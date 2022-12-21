@@ -36,9 +36,9 @@ Route::get('/contacts', function () {
 Route::post('/contacts', function (Request $request) {
     $newContact = $request->all();
     $contact = new contact();
-    $contact->full_name = $newContact['full_name'] || null;
-    $contact->phone_number = $newContact['phone_number'] || null;
-    $contact->email = $newContact['email'] || null;
+    $contact->full_name = $newContact['full_name'];
+    $contact->phone_number = $newContact['phone_number'];
+    $contact->email = $newContact['email'];
     $contact->save();
     $response = response()->json([
         'message' => 'Contact created',
