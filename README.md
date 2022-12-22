@@ -86,7 +86,7 @@ Pastikan port ketika menjalankan docker image sama dengan `API_URL` ketika ingin
 Jalankan perintah berikut untuk menjalankan unit testing di local:
 
 ```
-docker run --network="host" -e API_URL=http://localhost:3030 -e LEVEL=1 alfi08/hello-unit-testing
+docker run --network="host" -e API_URL=http://localhost:3030 -e LEVEL=3 alfi08/hello-unit-testing
 ```
 
 ## Submit Docker Image ke Devcode
